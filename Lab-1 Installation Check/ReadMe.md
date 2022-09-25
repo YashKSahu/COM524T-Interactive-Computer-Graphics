@@ -1,6 +1,8 @@
 ## Random Points
 ![](random_points.png)
 
+---
+
 Installation instructions on **Ubuntu/debian** systems: 
 https://www.includehelp.com/linux/how-to-install-opengl-in-ubuntu-linux.aspx
 
