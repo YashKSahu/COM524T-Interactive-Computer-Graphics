@@ -3,22 +3,23 @@
 
 int onMouse;
 float r,g,b;
+int center_x=320, center_y=240, a=20;   //deafult values
 
 void init(){
-    glClearColor(0,0,0,0); //black background
+    glClearColor(0,0,0,0);  //black background
     glLoadIdentity();
     gluOrtho2D(0, 640, 0, 480);
 }
 
-void pointPlot(int x, int y){
+void pointPlot(int x, int y, int center_x, int center_y){
     glPointSize(2);
     glBegin(GL_POINTS);
-        glVertex2i(x,y);
+        glVertex2i(x+center_x,y+center_y);
     glEnd();
 }
 
-void drawLogic(){
-
+void drawLogic(int center_x, int center_y, int a){
+    
 }
 
 void display(){
@@ -34,6 +35,8 @@ void display(){
         glVertex2d(640,240);
     glEnd();
 
+    // drawLogic(center_x, center_y, params);
+
     glFlush();
 }
 
@@ -42,6 +45,9 @@ void mouseClicks(int button, int state, int x, int y){
         onMouse = 1;
     }
     if(onMouse == 1){
+        // center_x=rand()%400 + 100;
+		// center_y=rand()%100 + 50;
+		// a=rand()%25;
         r=rand()%9;
         g=rand()%9;
         b=rand()%9;
@@ -59,7 +65,7 @@ int main(int argc, char** argv){
     glutInitWindowPosition(100,150);
     glutCreateWindow("Test Window");
     glutDisplayFunc(display);
-    // glutMouseFunc(mouseClicks);
+    glutMouseFunc(mouseClicks);
     init();
     glutMainLoop();
 }
